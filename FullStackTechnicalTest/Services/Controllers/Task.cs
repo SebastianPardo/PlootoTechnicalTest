@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace Services.Controllers
 {
-  public class ValuesController : ApiController
+  public class TaskController : ApiController
   {
     // GET api/values
     public IEnumerable<string> Get()
