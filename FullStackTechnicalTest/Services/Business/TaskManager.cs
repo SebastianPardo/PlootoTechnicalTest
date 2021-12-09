@@ -41,11 +41,12 @@ namespace Services.Business
       }
     }
 
-    public bool Delete(Task Task)
+    public bool Delete(int id)
     {
+      var task = GetById(id);
       using (var repo = new Repository<Task>())
       {
-        repo.Delete(Task);
+        repo.Delete(task);
         return repo.SaveChanges() > 0;
       }
     }
