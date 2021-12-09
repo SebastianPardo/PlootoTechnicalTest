@@ -164,6 +164,10 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\Task.cs" />
     <Compile Include="Data\DataModel.cs" />
+    <Compile Include="Data\Migrations\202112092144072_PriorityAndTask.cs" />
+    <Compile Include="Data\Migrations\202112092144072_PriorityAndTask.Designer.cs">
+      <DependentUpon>202112092144072_PriorityAndTask.cs</DependentUpon>
+    </Compile>
     <Compile Include="Data\MyTree.cs" />
     <Compile Include="Data\Pattern\IRepository.cs" />
     <Compile Include="Data\Pattern\ISpecification.cs" />
@@ -171,6 +175,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Data\Migrations\Configuration.cs" />
+    <Compile Include="Models\Priority.cs" />
+    <Compile Include="Models\Task.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -208,7 +215,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -224,6 +230,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Data\Migrations\202112092144072_PriorityAndTask.resx">
+      <DependentUpon>202112092144072_PriorityAndTask.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,3 +1,4 @@
+using Services.Models;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
@@ -11,7 +12,9 @@ namespace Services.Data
         : base("name=DataModel")
     {
     }
+    public virtual DbSet<Priority> Priority { get; set; }
 
+    public virtual DbSet<Task> Task { get; set; }
 
     protected override void OnModelCreating(DbModelBuilder modelBuilder)
     {
