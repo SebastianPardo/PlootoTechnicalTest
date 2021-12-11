@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { TaskToDo } from '../models/task';
+import { Priority } from '../models/priority';
 import { TaskService } from '../service/task.service';
-import { MatTable } from '@angular/material/table';
+import { PriorityService } from '../service/priority.service';
 
 @Component({
   selector: 'app-task',
@@ -12,20 +13,23 @@ export class TaskComponent implements OnInit {
 
   displayedColumns: string[] = ['done', 'description', 'priority', 'update', 'delete'];
   dataSource: TaskToDo[] = [];
+  priorities: Priority[] = [];
   task: TaskToDo = {
     Checked: false,
     Id: 0,
     Description: "",
     PriorityId: 0
   };
+  selectedValue = null;
 
-  constructor(private taskService: TaskService) {
+  constructor(private taskService: TaskService, private priorityService: PriorityService) {
 
 
   }
 
   ngOnInit(): void {
     this.getTasks();
+    this.getPriorities();
   }
 
   save(id:number, description:string, priority:number) {
@@ -43,13 +47,13 @@ export class TaskComponent implements OnInit {
     }
     $("#id").val('');
     $("#description").val('');
-    $("#priority").val('');
+    $("#priority").val('0');
   }
 
   actionBtnUpdate(element: any) {
     $("#id").val(element["Id"] as string);
     $("#description").val(element["Description"]);
-    $("#priority").val(element["PriorityId"] as string);
+    this.selectedValue = element["PriorityId"]
   }
 
   updateTask(task: TaskToDo): void {
@@ -60,6 +64,10 @@ export class TaskComponent implements OnInit {
 
   getTasks(): void {
     this.taskService.getTasks().subscribe(task => this.dataSource = task);
+  }
+
+  getPriorities(): void {
+    this.priorityService.getPriorities().subscribe(priorities => this.priorities = priorities);
   }
 
   deleteTask(id: number): void {

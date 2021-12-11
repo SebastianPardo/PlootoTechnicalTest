@@ -8,9 +8,14 @@
 
   <mat-form-field appearance="fill">
     <mat-label>Priority</mat-label>
-    <input matInput id="priority" #priority>
+    <mat-select [(value)]="selectedValue" #priority>
+      <mat-option *ngFor="let priority of priorities" [value]="priority.Id">
+        {{priority.Description}}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
-  <button mat-fab color="primary" (click)="save(+id.value, description.value, +priority.value)">
+
+  <button mat-mini-fab color="primary" (click)="save(+id.value, description.value, +priority.value)">
     <mat-icon>add</mat-icon>
   </button>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">

@@ -169,8 +169,10 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Business\PriorityManager.cs" />
     <Compile Include="Business\TaskManager.cs" />
-    <Compile Include="Controllers\Task.cs" />
+    <Compile Include="Controllers\PriorityController.cs" />
+    <Compile Include="Controllers\TaskController.cs" />
     <Compile Include="Data\DataModel.cs" />
     <Compile Include="Data\Migrations\202112092144072_PriorityAndTask.cs" />
     <Compile Include="Data\Migrations\202112092144072_PriorityAndTask.Designer.cs">

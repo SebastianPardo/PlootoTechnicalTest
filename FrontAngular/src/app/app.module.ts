@@ -5,7 +5,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
-import { MatTableModule } from '@angular/material/table'  
+import { MatTableModule } from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select' 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import * as $ from 'jquery';
@@ -32,7 +33,8 @@ import { AppRoutingModule } from './app-routing.module';
     MatToolbarModule,
     MatIconModule,
     HttpClientModule,
-    FormsModule,    
+    FormsModule,
+    MatSelectModule   
   ],
   providers: [],
   bootstrap: [AppComponent]
