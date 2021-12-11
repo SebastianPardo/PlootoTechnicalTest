@@ -8,6 +8,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table'  
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import * as $ from 'jquery';
 
 import { AppComponent } from './app.component';
 import { TaskComponent } from './task/task.component';
