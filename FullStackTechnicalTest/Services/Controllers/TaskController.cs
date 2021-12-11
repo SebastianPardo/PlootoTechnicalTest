@@ -23,9 +23,8 @@ namespace Services.Controllers
     // GET api/values/5
     public IHttpActionResult Get(int id)
     {
-      var tasks = Json(TaskManager.Instance.GetById(id, "Priority"));
-      var jsonString = JsonConvert.SerializeObject(tasks, Formatting.None, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
-      return Json(JsonConvert.DeserializeObject(jsonString));
+      var task = TaskManager.Instance.GetById(id);
+      return Json(task);
     }
 
     // POST api/values

@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace FrontEnd.Controllers
 {
-  public class HomeController : Controller
+  public class TaskController : Controller
   {
     public ActionResult Index()
     {
