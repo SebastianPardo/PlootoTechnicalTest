@@ -15,12 +15,13 @@ export class TaskComponent implements OnInit {
   dataSource: TaskToDo[] = [];
   priorities: Priority[] = [];
   task: TaskToDo = {
-    Checked: false,
+    Completed: false,
     Id: 0,
     Description: "",
     PriorityId: 0
   };
-  selectedValue = null;
+  selectedValue = 0;
+  disabled = false;
 
   constructor(private taskService: TaskService, private priorityService: PriorityService) {
 
@@ -32,13 +33,12 @@ export class TaskComponent implements OnInit {
     this.getPriorities();
   }
 
-  save(id:number, description:string, priority:number) {
+  save(id:number, description:string, priority:number, completed:boolean) {
     this.task = {
-      Checked: false,
+      Completed: completed,
       Id: id,
       Description: description,
       PriorityId: priority
-
     }
     if (this.task.Id == 0) {
       this.addTask(this.task)
@@ -47,13 +47,17 @@ export class TaskComponent implements OnInit {
     }
     $("#id").val('');
     $("#description").val('');
-    $("#priority").val('0');
+    this.selectedValue = 0;
   }
 
   actionBtnUpdate(element: any) {
     $("#id").val(element["Id"] as string);
     $("#description").val(element["Description"]);
-    this.selectedValue = element["PriorityId"]
+    this.selectedValue = element["PriorityId"];
+  }
+  completeTask(element: any){
+    this.disabled = true;
+    this.save(element.Id,element.Description,element.PriorityId,true)
   }
 
   updateTask(task: TaskToDo): void {
