@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { TaskToDo } from '../models/task';
+import { TaskService } from '../service/task.service';
+import { MatTable } from '@angular/material/table';
 
 @Component({
   selector: 'app-task',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskComponent implements OnInit {
 
-  constructor() { }
+  displayedColumns: string[] = ['done','description', 'update', 'delete'];
+  dataSource: TaskToDo[] = [];
+  constructor(private taskService: TaskService) { }
 
   ngOnInit(): void {
+    this.getTasks()
   }
 
+  getTasks(): void {
+    this.taskService.getTasks().subscribe(task => this.dataSource = task);
+  }
+
+  deleteTask(id:number): void {
+    this.deleteTask(id);
+  }
 }
